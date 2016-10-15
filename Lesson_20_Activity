@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+class Lesson_20_Activity
+{
+  public static void main(String[] args)
+  {
+    double maxLat = 0;
+    double minLat = 0;
+    double maxLon = 0;
+    double minLon = 0;
+    
+    Scanner scan = new Scanner(System.in);
+    
+    System.out.println("Please enter the latitude:");
+    double lat = scan.nextDouble();
+    System.out.println("Please enter the longitude:");
+    double lon = scan.nextDouble();
+    
+    while((lat > 90 || lat < -90) || (lon > 180 || lon < -180))
+    {
+      System.out.println("Incorrect latitude or longitude.");
+      System.out.println("Please enter the latitude:");
+      lat = scan.nextDouble();
+      System.out.println("Please enter the longitude:");
+      lon = scan.nextDouble();
+    }
+    
+    maxLat = lat;
+    minLat = lat;
+    maxLon = lon;
+    minLon = lon;
+    
+    int another = 1;
+    
+    while ( another == 1 )
+    {
+      System.out.println("Would you like to enter another location?");
+      another = scan.nextInt();
+      if (another == 1)
+      {
+        System.out.println("Please enter the latitude:");
+        lat = scan.nextDouble();
+        System.out.println("Please enter the longitude:");
+        lon = scan.nextDouble();
+        
+        while((lat > 90 || lat < -90) || (lon > 180 || lon < -180))
+    {
+      System.out.println("Incorrect latitude or longitude.");
+      System.out.println("Please enter the latitude:");
+      lat = scan.nextDouble();
+      System.out.println("Please enter the longitude:");
+      lon = scan.nextDouble();
+    }
+        
+        if(lat > maxLat)
+          maxLat = lat;
+        
+        if(lat < minLat)
+          minLat = lat;
+        
+        if(lon > maxLon)
+          maxLon = lon;
+        
+        if(lon < minLon)
+          minLon = lon;
+      }
+    }
+    
+    System.out.println("Farthest North: " + maxLat);
+    System.out.println("Farthest South: " + minLat);
+    System.out.println("Farthest East: " + maxLon);
+    System.out.println("Farthest West: " + minLon);
+  }
+}
+
+    
