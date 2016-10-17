@@ -1,72 +1,74 @@
-//THIS IS INCOMPLETE!!!!
+
 
 import java.util.Scanner;
 
-class Main
+class test2
 {
 public static void main(String[] args)
 {
-	Scanner scan = new Scanner(System.in);
-	
-	System.out.println("Please enter a tweet:");
-	String tweet = scan.nextLine();
-	int length = tweet.length();
-	int over = length - 140;
-	
-	String capsTweet = tweet.toLowerCase();
-	int rtChar = capsTweet.indexOf("rt:");
-	
-	
-	int hashtagChar = tweet.indexOf ("#");
-	int hashtags = 0;
-	
-	int mentionChar = tweet.indexOf ("@");
-	int mentions = 0;
-	String restOfTweet = tweet;
-	
-	while ( hashtagChar != -1 )
-	{
-		hashtags++;
-		restOfTweet = restOfTweet.substring(hashtagChar, restOfTweet.length());
-		
-		hashtagChar = restOfTweet.indexOf("#");
-		
-		if (restOfTweet.length() <= 1)
-		hashtags--;
-	}
-
-	
-	while ( mentionChar != -1 )
-	{
-		restOfTweet = tweet;
-		mentions++;
-		restOfTweet = restOfTweet.substring(mentionChar, restOfTweet.length());
-		
-		mentionChar = restOfTweet.indexOf("@");
-		
-		if (restOfTweet.length() <= 1)
-		mentions--;
-	}
-	
-	
-	if ( length > 140 )
-	System.out.println("Excess Characters: " + over);
-	
-	else
-	{
-		System.out.println("Length Correct");
-		System.out.println("Number of Mentions: " + mentions);
-		System.out.println("Number of Hashtags: " + hashtags);
-		
-		if ( rtChar != -1)
-		System.out.println("The input was a retweet.");
-		else
-		System.out.println("The input was not a retweet.");
-		
-		
-	}
-	}
-	}
-	
-		
-		
+ Scanner scan = new Scanner(System.in);
+ 
+ System.out.println("Please enter a tweet:");
+ String tweet = scan.nextLine();
+ int length = tweet.length();
+ int over = length - 140;
+ 
+ String capsTweet = tweet.toLowerCase();
+ int rtChar = capsTweet.indexOf("rt:");
+ 
+ 
+ int hashtagChar = tweet.indexOf ("#");
+ int hashtags = 0;
+ int i = 0;
+ 
+ int mentionChar = tweet.indexOf ("@");
+ int mentions = 0;
+ String restOfTweet = tweet;
+ 
+    while(i < (length - 1))
+    {
+      if (tweet.charAt(i) == '#')
+      {
+        hashtags++;
+      
+        if((tweet.charAt(i+1) == ' ') || (tweet.charAt(i+1) == '\t')) 
+        hashtags--;
+      }
+      
+      i++;
+    }
+    
+    i=0;
+    
+    while(i < (length - 1))
+    {
+      if (tweet.charAt(i) == '@')
+      {
+        mentions++;
+        
+        if((tweet.charAt(i+1) == ' ') || (tweet.charAt(i+1) == '\t')) 
+          mentions--;
+      }
+      
+      i++;
+    }
+ 
+ 
+ if ( length > 140 )
+ System.out.println("Excess Characters: " + over);
+ 
+ else
+ {
+  System.out.println("Length Correct");
+  System.out.println("Number of Mentions: " + mentions);
+  System.out.println("Number of Hashtags: " + hashtags);
+  
+  if ( rtChar != -1)
+  System.out.println("The input was a retweet.");
+  else
+  System.out.println("The input was not a retweet.");
+  
+  
+ }
+ }
+ }
