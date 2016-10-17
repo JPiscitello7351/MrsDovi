@@ -27,11 +27,11 @@ public static void main(String[] args)
 	while ( hashtagChar != -1 )
 	{
 		hashtags++;
-		restOfTweet = restOfTweet.substring(hashtagChar + 1, restOfTweet.length());
+		restOfTweet = restOfTweet.substring(hashtagChar, restOfTweet.length());
 		
 		hashtagChar = restOfTweet.indexOf("#");
 		
-		if (restOfTweet.length() == 0)
+		if (restOfTweet.length() <= 1)
 		hashtags--;
 	}
 
@@ -40,11 +40,11 @@ public static void main(String[] args)
 	{
 		restOfTweet = tweet;
 		mentions++;
-		restOfTweet = restOfTweet.substring(mentionChar + 1, restOfTweet.length());
+		restOfTweet = restOfTweet.substring(mentionChar, restOfTweet.length());
 		
 		mentionChar = restOfTweet.indexOf("@");
 		
-		if (restOfTweet.length() == 0)
+		if (restOfTweet.length() <= 1)
 		mentions--;
 	}
 	
@@ -55,8 +55,8 @@ public static void main(String[] args)
 	else
 	{
 		System.out.println("Length Correct");
-		System.out.println("Mentions: " + mentions);
-		System.out.println("Hashtags: " + hashtags);
+		System.out.println("Number of Mentions: " + mentions);
+		System.out.println("Number of Hashtags: " + hashtags);
 		
 		if ( rtChar != -1)
 		System.out.println("The input was a retweet.");
@@ -68,4 +68,5 @@ public static void main(String[] args)
 	}
 	}
 	
+		
 		
