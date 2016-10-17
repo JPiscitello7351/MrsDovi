@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+class main
+{
+public static void main(String[] args)
+{
+	Scanner scan = new Scanner(System.in);
+	
+	System.out.println("Please enter a tweet:");
+	String tweet = scan.nextLine();
+	int length = tweet.Length();
+	int over = length - 140;
+	
+	int hashtagChar = tweet.indexOf ("#");
+	int hashtags = 0;
+	
+	int mentionChar = tweet.indexOf ("@");
+	int mentions = 0;
+	
+	if ( hashtagChar != null )
+	{
+		hashtags++;
+		String restOfTweet = tweet.substring(hashtagChar + 1, length);
+		
+		if (restOfTweet.length() == 0)
+		hastags--;
+	}
+	
+	while ( hashtagChar != null )
+	{
+		hashtags++;
+		restOfTweet = restOfTweet.substring(hashtagChar + 1, restOfTweet.length());
+		
+		if (restOfTweet.length() == 0)
+		hastags--;
+	}
+	
+	if ( mentionChar != null )
+	{
+		mentions++;
+		restOfTweet = tweet;
+		restOfTweet = tweet.substring(mentionChar + 1, length);
+		
+		if (restOfTweet.length() == 0)
+		mentions--;
+	}
+	
+	while ( mentionChar != null )
+	{
+		mentions++;
+		restOfTweet = restOfTweet.substring(mentionChar + 1, restOfTweet.length());
+		
+		if (restOfTweet.length() == 0)
+		mentions--;
+	}
+	
+	
+	if ( length > 140 )
+	System.out.println("Excess Characters: " + over);
+	
+	else
+	{
+		System.out.println("Length Correct");
+		System.out.println("Mentions: " + mentions);
+		System.out.println("Hashtags: " + hashtags);
+		
+	}
+		
