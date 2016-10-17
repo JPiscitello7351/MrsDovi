@@ -2,7 +2,7 @@
 
 import java.util.Scanner;
 
-class main
+class Main
 {
 public static void main(String[] args)
 {
@@ -10,47 +10,39 @@ public static void main(String[] args)
 	
 	System.out.println("Please enter a tweet:");
 	String tweet = scan.nextLine();
-	int length = tweet.Length();
+	int length = tweet.length();
 	int over = length - 140;
+	
+	String capsTweet = tweet.toLowerCase();
+	int rtChar = capsTweet.indexOf("rt:");
+	
 	
 	int hashtagChar = tweet.indexOf ("#");
 	int hashtags = 0;
 	
 	int mentionChar = tweet.indexOf ("@");
 	int mentions = 0;
+	String restOfTweet = tweet;
 	
-	if ( hashtagChar != null )
-	{
-		hashtags++;
-		String restOfTweet = tweet.substring(hashtagChar + 1, length);
-		
-		if (restOfTweet.length() == 0)
-		hastags--;
-	}
-	
-	while ( hashtagChar != null )
+	while ( hashtagChar != -1 )
 	{
 		hashtags++;
 		restOfTweet = restOfTweet.substring(hashtagChar + 1, restOfTweet.length());
 		
-		if (restOfTweet.length() == 0)
-		hastags--;
-	}
-	
-	if ( mentionChar != null )
-	{
-		mentions++;
-		restOfTweet = tweet;
-		restOfTweet = tweet.substring(mentionChar + 1, length);
+		hashtagChar = restOfTweet.indexOf("#");
 		
 		if (restOfTweet.length() == 0)
-		mentions--;
+		hashtags--;
 	}
+
 	
-	while ( mentionChar != null )
+	while ( mentionChar != -1 )
 	{
+		restOfTweet = tweet;
 		mentions++;
 		restOfTweet = restOfTweet.substring(mentionChar + 1, restOfTweet.length());
+		
+		mentionChar = restOfTweet.indexOf("@");
 		
 		if (restOfTweet.length() == 0)
 		mentions--;
@@ -66,5 +58,14 @@ public static void main(String[] args)
 		System.out.println("Mentions: " + mentions);
 		System.out.println("Hashtags: " + hashtags);
 		
+		if ( rtChar != -1)
+		System.out.println("The input was a retweet.");
+		else
+		System.out.println("The input was not a retweet.");
+		
+		
 	}
+	}
+	}
+	
 		
