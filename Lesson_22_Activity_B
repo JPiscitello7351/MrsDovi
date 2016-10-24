@@ -1,0 +1,26 @@
+import java.util.Scanner;
+import java.lang.Math; 
+
+class Lesson_22_Activity_Two {
+    public static void main(String[] args)
+    {
+      Scanner scan = new Scanner(System.in);
+      
+      String word = scan.nextLine();
+      int length = word.length();
+      int c = 0;
+      int tabs = 0;
+      
+      while(c < length)
+      {
+        while(c > tabs)
+        {
+          System.out.print("\t");
+          tabs++;
+        }
+        System.out.println(word.charAt(c));
+        c++;
+        tabs = 0;
+      }
+}
+}
