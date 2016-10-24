@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import java.lang.Math; 
+
+class Lesson_24_Activity_Three {
+    public static void main(String[] args)
+     {
+      Scanner scan = new Scanner(System.in);
+      
+      int num = scan.nextInt();
+      int c = 0;
+      if(num >= 0 && num <=100)
+      {
+        for(int i = num; i <= 100; i++)
+        {
+          System.out.print(i + " ");
+          c++;
+          if(c == 20)
+          {
+            System.out.print("\n");
+            c = 0;
+          }
+        }
+      }
+        else
+          System.out.println("error");
+            
+      
+      
+      
+      }
+}
