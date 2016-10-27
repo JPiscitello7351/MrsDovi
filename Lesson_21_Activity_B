@@ -1,0 +1,17 @@
+import java.util.Scanner;
+import java.lang.Math; 
+
+class Lesson_22_Activity_One {
+    public static void main(String[] args)
+     {
+      Scanner scan = new Scanner(System.in);
+      int c = 0;
+      String word = scan.nextLine();
+      int l = word.length();
+      while (c<l)
+      {
+        System.out.println(word.charAt(c));
+        c++;
+      }
+}
+}
