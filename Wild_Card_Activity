@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 class Main
@@ -10,9 +11,18 @@ class Main
     String word = scan.nextLine();
     System.out.println("Enter the replacement String:");
     String replacement = scan.nextLine();
+    int symbol = word.indexOf('%');
     int length = word.length();
     int test = 0;
     int add = 65;
+    
+    String firstHalf = word.substring(0, symbol);
+    String secondHalf = word.substring(4, length);
+    
+    System.out.println(firstHalf + " " + secondHalf);
+    
+    
+    System.out.println(symbol);
     
     for(int i = 0; i < length; i++)
     {
@@ -25,7 +35,7 @@ class Main
     
     else
     {
-      int[] chars = new int[53];
+      char[] chars = new char[53];
       for(int n = 0; n < 53; n++)
       {
         int c = n + add;
@@ -34,15 +44,36 @@ class Main
           add += 6;
           
         char letter = (char)c;
-        chars[n] = c;
-        
-        
+        chars[n] = letter;
       }
       
+      chars[52] = '%';
+      int check = 0;
       
+      for(int t = 0; t < length; t++)
+      {
+      	for(int a = 0; a < 53; a++)
+      	{
+      		check = 0;
+      		
+      		if(word.charAt(t) == chars[a])
+      		check = 1;
+      		
+      		if(check == 1)
+      		{
+      		break;
+      		}
+
+      	}
+      	if(check == 0)
+      	break;
+      	
+      }
+      if(check == 0)
+      System.out.println("Error: Incorrect Characters");
       
+      else
+      System.out.println(word.substring(0, symbol) + replacement + word.substring((symbol + 1), (length - 1)));
     }
   }
 }
-         
-    
