@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 class Main
@@ -16,14 +15,6 @@ class Main
     int test = 0;
     int add = 65;
     
-    String firstHalf = word.substring(0, symbol);
-    String secondHalf = word.substring(4, length);
-    
-    System.out.println(firstHalf + " " + secondHalf);
-    
-    
-    System.out.println(symbol);
-    
     for(int i = 0; i < length; i++)
     {
       if(word.charAt(i) == '%')
@@ -35,7 +26,10 @@ class Main
     
     else
     {
-      char[] chars = new char[53];
+          String firstHalf = word.substring(0, symbol);
+    String secondHalf = word.substring((symbol + 1), length);
+      
+      char[] chars = new char[55];
       for(int n = 0; n < 53; n++)
       {
         int c = n + add;
@@ -48,32 +42,35 @@ class Main
       }
       
       chars[52] = '%';
+      chars[53] = ' ';
+      chars[54] = '\t';
+      
       int check = 0;
       
       for(int t = 0; t < length; t++)
       {
-      	for(int a = 0; a < 53; a++)
-      	{
-      		check = 0;
-      		
-      		if(word.charAt(t) == chars[a])
-      		check = 1;
-      		
-      		if(check == 1)
-      		{
-      		break;
-      		}
+       for(int a = 0; a < 55; a++)
+       {
+        check = 0;
+        
+        if(word.charAt(t) == chars[a])
+        check = 1;
+        
+        if(check == 1)
+        {
+        break;
+        }
 
-      	}
-      	if(check == 0)
-      	break;
-      	
+       }
+       if(check == 0)
+       break;
+       
       }
       if(check == 0)
-      System.out.println("Error: Incorrect Characters");
+      System.out.println("Error: Incorrect characters");
       
       else
-      System.out.println(word.substring(0, symbol) + replacement + word.substring((symbol + 1), (length - 1)));
+      System.out.println(firstHalf + replacement + secondHalf);
     }
   }
 }
