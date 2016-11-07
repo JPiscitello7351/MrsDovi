@@ -1,0 +1,31 @@
+
+import java.util.Scanner;
+
+class Lesson_30_Activity {
+     
+   /*
+    * Your code should end with the following array modified as the 
+    * instructions above specify. You may modify the elements in 
+    * this list but make sure you do not add or remove anything from it. 
+   */
+    public static String [] list = {"fi re", "eat some food"};
+  
+    public static void main(String[] args)
+     {
+     for(int i = 0; i < list.length; i++)
+     {
+     	for(int n = 0; n < list[i].length(); n++)
+     	{
+     	  String temp = list[i];
+     	  
+     	  if(list[i].charAt(n) == ' ')
+     	  {
+     	    list[i] = temp.substring(0,n) + temp.substring(n+1, temp.length());
+     	  }
+     	}
+     
+     System.out.println(list[i]);
+     
+    }
+}
+}
