@@ -1,0 +1,29 @@
+import java.util.Scanner;
+import java.lang.Math; 
+
+class Lesson_29_Activity_One {
+  
+  /* Fill this list with values that will be useful for you to test. 
+   * A good idea may be to copy/paste the list in the example above. 
+   * Do not make any changes to this list in your main method. You can 
+   * print values from list, but do not add or remove values to this 
+   * variable. 
+   */
+  public static String [] list = {"five", "seven", "eighteen", " nine", "seventeen", "thirteen", "twenty-three"};
+  
+    public static void main(String[] args)
+     {
+     	String longest = list[0];
+     
+     	for(int i = 0; i < list.length; i++)
+     	{
+     		if(longest.length() < list[i].length())
+     		longest = list[i];
+     		
+     	}
+     	
+     	System.out.println(longest);
+     
+     
+     }
+}
