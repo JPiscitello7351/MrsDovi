@@ -1,0 +1,47 @@
+
+import java.util.Scanner;
+import java.lang.Math; 
+
+class Lesson_1011_Activity{
+    public static void main(String[] args)
+     {
+     Scanner scan = new Scanner(System.in);
+     
+     System.out.println("Enter a number in base 8:");
+     
+     int octal = scan.nextInt();
+     String octa = Integer.toString(octal);
+     int length = octa.length();
+     char []nums = new char[] {'0', '1', '2', '3', '4', '5', '6', '7'};
+     int x = 0;
+     
+     System.out.println(length + "\n" + octa);
+     
+     for(int i = 0; i < length; i++)
+     {
+     	x = 0;
+     	
+     	for(int n = 0; n < nums.length; n++)
+     	{
+     	  if(octa.charAt(i) == nums[n])
+     	   x = 1;
+     	   
+     	   if(x==1)
+     	   break;
+     	}
+     if(x==0);
+     break;
+      }
+      
+      if(x == 0 || length > 8)
+      System.out.println("ERROR: Incorrect Octal Format");
+      
+      else
+      {
+      
+      }
+     
+     
+     
+}
+}
