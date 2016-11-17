@@ -77,7 +77,8 @@ class Main
     int []merged = new int[(la+lb)];
     int lf = merged.length;
     int check = 0;
-    
+    int valA = 0;
+    int valB = 0;
     
     for(int i = 1; i < la; i++)
     {
@@ -104,37 +105,21 @@ class Main
     {
       for(int i = 0; i < lf; i++)
       {
-        if(c == la || c2 == lb)
+        valA = a[c];
+        valB = b[c2]
+        
+        if(valA >= valB)
         {
-          if(c == la)
-          {
           merged[i] = b[c2];
           c2++;
-          }
-          
-          if(c2 == lb)
-          {
-          merged[i] = a[c];
-          c++;
-          }
-
         }
         
-        
         else
-        {
-        if(a[c] >= b[c2])
         {
           merged[i] = a[c];
           c++;
         }
         
-        else
-        {
-          merged[i] = b[c2];
-          c2++;
-        }
-        }
       }
       
       System.out.println("\n\nMerged Array:");
@@ -146,10 +131,3 @@ class Main
       }	
     }
   }
-    
-    
-    
-    
-      
-    
-    
