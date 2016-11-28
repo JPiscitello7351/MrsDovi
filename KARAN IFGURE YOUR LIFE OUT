@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+class Lesson_33_Activity_One {
+  
+public static void upper(String[] a)
+{
+  String[] b = new String[a.length];
+  
+  for(int i = 0; i < a.length; i++)
+  {
+    b[i] = a[i].toUpperCase();
+    a[i] = b[i];
+  }
+  
+}
+  
+    public static void main(String[] args)
+     {
+      String[] a = {"Hello", "world"};
+      upper(a);
+      for(int i = 0; i < a.length; i++)
+      System.out.println(a[i]);
+      
+    }
+}
