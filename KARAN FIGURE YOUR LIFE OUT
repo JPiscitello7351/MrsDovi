@@ -1,15 +1,14 @@
+
+
 import java.util.Scanner;
 
 class Lesson_33_Activity_One {
   
 public static void upper(String[] a)
-{
-  String[] b = new String[a.length];
-  
+{ 
   for(int i = 0; i < a.length; i++)
   {
-    b[i] = a[i].toUpperCase();
-    a[i] = b[i];
+    a[i] = a[i].toUpperCase();
   }
   
 }
