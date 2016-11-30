@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+class Lesson_33_Activity_Five {
+  
+public static void printIt(int[] a)
+{
+  for(int i = 0; i < a.length; i++)
+  System.out.print(a[i] + " ");
+}
+
+public static void insertValue(int[] a, int b, int c)
+{
+    int[] a2 = new int[a.length];
+    
+    for(int i = 0; i < a.length; i++)
+    {
+      a2[i] = a[i];
+    }
+    
+    for(int i = c; i < a.length-1; i++)
+    {
+      a[i+1] = a2[i];
+    }
+    
+    a[c] = b;
+}
+  
+    public static void main(String[] args)
+     {
+     Scanner scan = new Scanner(System.in);
+     
+     int[] a = {1, 2, 3, 4, 5};
+     
+     System.out.println("Enter value to be inserted:");
+     int b = scan.nextInt();
+     
+     System.out.println("\nEnter index location where the value should be inserted:");
+     int c = scan.nextInt();
+     
+     insertValue(a, b, c);
+     printIt(a);
+    }
+}
