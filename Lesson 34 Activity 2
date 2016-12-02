@@ -1,0 +1,23 @@
+
+import java.util.Scanner;
+
+class Lesson_34_Activity_Two {
+  
+   public static double average(int a[])
+   {
+     double x = 0;
+     for (int i = 0; i < a.length; i++){
+      x += a[i];
+     }
+     double avg = x/a.length;
+     return avg;
+     
+    }
+  
+    public static void main(String[] args)
+     {
+      int a[] = {1, 2, 2};
+      
+      System.out.println("average: " + average(a));
+    }
+}
