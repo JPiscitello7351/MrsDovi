@@ -1,158 +1,110 @@
 import java.util.Scanner;
 import java.lang.Math;
-
-class Main
+class Main{
+public static void main(String[] args)
 {
-  public static void main(String[] args)
-  {
-    Scanner scan = new Scanner(System.in);
-    
-    int value = 1;
-    int c = 0;
-    int [] temp = new int[10000];
-    
-    
-    System.out.println("Enter the values for the first array, up to 10000 values, enter zero or a negative number to quit.");
-    
-    while(value > 0 && c < 10000)
-    {
-      value = scan.nextInt();
-      
-      if(value <= 0)
-      break;
-      
-      c++;
-      
-      temp[c-1] = value;
-    }
-    
-    int []a = new int[c];
-    
-    for(int i = 0; i < c; i++)
-    {
-      a[i] = temp[i];
-    }
-    
-    int c2 = 0;
-    value = 1;
-    
-    System.out.println("Enter the values for the second array, up to 10000 values, enter zero or a negative number to quit.");
-      
-    while(value > 0 && c2 < 10000)
-    {
-      value = scan.nextInt();
-      
-      if(value <= 0)
-      break;
-      
-      c2++;
-        
-      temp[c2-1] = value;
-      
-    }
-    
-    int []b = new int[c2];
-    
-    for(int i = 0; i < c2; i++)
-    {
-      b[i] = temp[i];
-    }
-    
-    System.out.println("\nFirst Array:");
-    for(int i = 0; i < c; i++)
-    {
-      System.out.print(a[i] + " ");
-    }
+Scanner scan= new Scanner (System.in);
+System.out.println("Enter the values for the first array, up to 10000 values, enter zero or a negative number to quit");
+int[] y = new int[10000];
+int[] c = new int[10000];
 
-    System.out.println("\n\nSecond Array:");
-    for(int i = 0; i < c2; i++)
-    {
-      System.out.print(b[i] + " ");
-    }
-    
-    int la = a.length;
-    int lb = b.length;
-    c = 0;
-    c2 = 0;
-    int []merged = new int[(la+lb-1)];
-    int lf = merged.length;
-    int check = 0;
-    int valA = 0;
-    int valB = 0;
-    
-    for(int i = 1; i < la; i++)
-    {
-      if(a[i-1] > a[i])
-      {
-       check = 1;
-       break;
-      }
-    }
-    
-    for(int i = 1; i < lb; i++)
-    {
-      if(b[i-1] > b[i])
-      {
-       check = 1;
-       break;
-      }
-    }
-    
-    if(check == 1)
-    System.out.println("\n\nERROR: Array not in correct order");
-    
-    else
-    {
-      for(int i = 0; i < lf; i++)
-      {
-        
-        if(c < la)
-        valA = a[c];
-        
-        if(c2 < lb)
-        valB = b[c2];
-        
-        
-        if(c < la && c2 < lb)
-        {   
-        if(valA >= valB)
-        {
-          merged[i] = b[c2];
-          c2++;
-        }
-        
-        else
-        {
-          merged[i] = a[c];
-          c++;
-          
-          
-        }
-       }
-        else
-        {
-          if(c == la)
-          {
-            merged[i] = b[c2];
-            c2++;
-          }
-          
-          if(c2 == lb)
-          {
-            merged[i] = a[c];
-            c++;
-          }
-        }
-          
-        
-      }
-      
-      System.out.println("\n\nMerged Array:");
-      
-     for(int i = 0; i < lf; i++)
-     {
-       System.out.print(merged[i] + " ");
-     }
-      } 
-    }
-  }
+int i = 0;
+int x= 1;
+int error=0;
+while (x > 0) {
+x = scan.nextInt();
+
+
+if (x>0) {
+y[i] = x;
+if (i>0&&y[i]<y[i-1] ){
+error++;
+}
+i++;
+}
+
+
+}
+
+System.out.println("\nEnter the values for the second array, up to 10000 values, enter zero or a negative number to quit");
+int s = 1;
+int b=0;
+while (s > 0) {
+s = scan.nextInt();
+if (s>0){
+c[b] = s;
+if (b>0&&c[b]<c[b-1] ){
+error++;
+
+}
+b++;
+}
+
+}
+
+
+int[] z = new int[i+b];
+if (error>0){
+  System.out.println("\n\nFirst Array:"); 
+for (int q = 0; q<i;q++){
+System.out.print(y[q]+" ");
+}
+System.out.println("\n");
+System.out.println("Second Array:"); 
+for (int g=0; g<b;g++){
+System.out.print(c[g]+" ");
+
+}
+System.out.println("\n \nERROR: Array not in correct order");
+
+}
+else {
+int n=0;
+int m=0;
+int k=0;
+while (n < i && m <b)
+{
+if (y[n] < c[m])
+{
+z[k]=(y[n]);
+
+n++;
+}
+else
+{
+z[k] = c[m];
+
+m++;
+}
+k++; 
+}
+while (n < i)
+{
+z[k] = y[n];
+n++;
+k++;
+}
+while (m < b)
+{
+z[k] = c[m];
+m++;
+k++;
+}
+System.out.println("\n\nFirst Array:"); 
+for (int q = 0; q<i;q++){
+System.out.print(y[q]+" ");
+}
+System.out.println("\n");
+System.out.println("Second Array:"); 
+for (int g=0; g<b;g++){
+System.out.print(c[g]+" ");
+
+}
+System.out.println("\n");
+System.out.println("Merged Array:");
+for (int u =0; u<i+b; u++){
+System.out.print(z[u]+" ");
+}
+}
+} 
+}
