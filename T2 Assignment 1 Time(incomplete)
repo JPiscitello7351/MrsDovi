@@ -59,14 +59,19 @@ public String convert()
   if(hour.charAt(0) == '0')
   hour = hour.substring(1);
   
-  if(min.charAt(0) == '0')
-  min = min.substring(1);
-  
   if(Integer.parseInt(hour) > 11)
   dayTime = "PM";
   
-  if(Integer.parseInt(hour) > 12)
-  hour = Integer.toString(Integer.parseInt(hour) - 12);
+  int milHour = Integer.parseInt(hour);
+  
+  if(milHour == 0)
+  {
+    milHour = 12;
+    hour = Integer.toString(milHour);
+  }
+  
+  if(milHour > 12)
+  hour = Integer.toString(milHour - 12);
   
   String twelveHourTime = hour + ":" + min + " " + dayTime;
   return twelveHourTime;
@@ -86,6 +91,3 @@ public void increment()
 }
 
 }
-
-
-
