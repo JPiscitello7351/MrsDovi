@@ -1,0 +1,91 @@
+public class Time
+{
+  private int hours;
+  private int minutes;
+
+public Time()
+{
+  hours = 0;
+  minutes = 0;
+}
+
+public Time(int h, int m)
+{
+  if(h > 0 && h < 24)
+    hours = h;
+ 
+  else
+    hours = 0;
+ 
+  if(m > 0 && m < 60)
+    minutes = m;
+ 
+  else
+    minutes = 0;
+}
+
+public String toString()
+{
+  String hour = Integer.toString(hours);
+  
+  while(hour.length() < 2)
+  hour = "0" + hour;
+  
+  String min = Integer.toString(minutes);
+  
+  while(min.length() < 2)
+  min = "0" + min;
+  
+  String time = hour + min;
+  return time;
+}
+
+public String convert()
+{
+  String hour = Integer.toString(hours);
+  
+  while(hour.length() < 2)
+  hour = "0" + hour;
+  
+  String min = Integer.toString(minutes);
+  
+  while(min.length() < 2)
+  min = "0" + min;
+  
+  String time = hour + min;
+  
+  String dayTime = "AM";
+  
+  if(hour.charAt(0) == '0')
+  hour = hour.substring(1);
+  
+  if(min.charAt(0) == '0')
+  min = min.substring(1);
+  
+  if(Integer.parseInt(hour) > 11)
+  dayTime = "PM";
+  
+  if(Integer.parseInt(hour) > 12)
+  hour = Integer.toString(Integer.parseInt(hour) - 12);
+  
+  String twelveHourTime = hour + ":" + min + " " + dayTime;
+  return twelveHourTime;
+}
+
+public void increment()
+{
+  minutes++;
+  if(minutes > 59)
+  {
+    minutes = 0;
+    hours++;
+  }
+  
+  if(hours > 23)
+  hours = 0;
+}
+
+}
+
+
+
