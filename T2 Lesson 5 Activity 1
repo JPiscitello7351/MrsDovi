@@ -1,0 +1,53 @@
+
+
+class Student
+{
+  private String firstName;
+  private String lastName;
+  private int gradeLevel;
+  private double gpa;
+  private static int num;
+  private int id;
+  
+  public Student()
+  {
+    firstName = "none";
+    lastName = "none";
+    gradeLevel = 0;
+    gpa = 0.0;
+    num++;
+    id = num;
+  }
+  
+  public Student(String name1, String name2, int grade, double gradePoint)
+  {
+    firstName = name1;
+    lastName = name2;
+    if(grade >= 0 && grade <= 12)
+    gradeLevel = grade;
+    else
+    gradeLevel = 0;
+    if(gradePoint >= 0 && gradePoint <= 4.5)
+    gpa = gradePoint;
+    else
+    gpa = 0;
+    num++;
+    id = num;
+  }
+  
+  public String toString()
+  {
+    String name = lastName + ", " + firstName;
+    String gradeLev = "Grade Level: " + Integer.toString(gradeLevel);
+    String gradePointAve = "GPA: " + Double.toString(gpa);
+    String idNum = "id # " + Integer.toString(id);
+    return name + "\n" + gradePointAve + "\n" + gradeLev + " " + idNum;
+  }
+}
+    
+    
+    
+    
+    
+    
+    
