@@ -1,0 +1,141 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Main
+{
+  public static String titleCase(String s)
+  {
+    String lower = s.toLowerCase();
+    String upper = s.toUpperCase();
+    String ret = upper.substring(0,1) + lower.substring(1,s.length());
+    
+    return ret;
+  }
+  
+  public static ArrayList<String> alphabetize(ArrayList<String> l)
+  {
+    ArrayList<String> next = new ArrayList<String>();
+    String temp = "";
+    int test = 0;
+    next.add(l.get(0));
+    A: for(int c = 1; c < l.size(); c++)
+    {
+      temp = l.get(c);
+      test = c-1;
+      B: if(true)
+      {
+        C: while(test >= 0)
+        {
+          D: for(int n = 0; n < temp.length(); n--)
+          {
+            if(temp.length() <= l.get(test).length())
+            {
+              if(temp.charAt(n) > l.get(test).charAt(n))
+              {
+                next.add(test, temp);
+                break B;
+              }
+              else if(temp.charAt(n) < l.get(test).charAt(n))
+              {
+                break D;
+              }
+            }
+            else
+            {
+              if(n <= l.get(test).length()-1)
+              {
+                  if(temp.charAt(n) > l.get(test).charAt(n))
+                {
+                  next.add(test, temp);
+                  break B;
+                }
+                else if(temp.charAt(n) < l.get(test).charAt(n))
+                {
+                break D;
+                }
+              }
+              else
+              {
+                break D;
+              }
+            }
+          }
+          
+          test--;
+        }
+        next.add(0, temp);
+        
+        
+      }
+      
+      
+    }
+    return next;
+  }
+    
+    
+    
+    
+    /*ArrayList<String> copy = new ArrayList<String>();
+    for(String name: l)
+    {
+      copy.add(name);
+    }
+    
+    ArrayList<String> temp = new ArrayList<String>();
+    String current = copy.get(0);
+    int c = 0;
+    
+    A: while(copy.size() > 0)
+    {
+    
+      B: for(int i = 0; i < copy.size();i++)
+    {
+      
+        C: for(int n = 0; n < copy.get(i).length(); n++)
+      {
+          
+          
+          D: if(copy.get(i).toLowerCase().charAt(n) < current.toLowerCase().charAt(n))
+        {
+            
+          current = copy.get(i);
+          c = i;
+          break C;
+          
+        }
+          
+          else if(copy.get(i).toLowerCase().charAt(n) > current.toLowerCase().charAt(n))
+            break C;
+        
+          
+      }
+      
+    }
+    temp.add(copy.get(c));
+    copy.remove(c);
+    }
+    return temp;
+  }
+  */
+  
+  public static void main(String[] args)
+  {
+    Scanner scan = new Scanner(System.in);
+    String temp = "";
+    ArrayList<String> list = new ArrayList<String>();
+    System.out.println("Enter the next name:");
+    temp = scan.nextLine();
+    temp = titleCase(temp);
+    while(!(temp.toLowerCase().equals("end")))
+    {
+      list.add(temp);
+      System.out.println("Enter the next name:");
+      temp = scan.nextLine();
+      temp = titleCase(temp);
+    }
+    list = alphabetize(list);
+    System.out.println(list.toString());
+    
+  }
+}
