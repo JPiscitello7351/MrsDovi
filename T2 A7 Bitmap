@@ -1,0 +1,112 @@
+
+
+public class Bitmap
+{
+  private String image[][] = new String[10][10];
+  
+  public Bitmap(int a[])
+  {
+    for(int i = 0; i < image.length; i++)
+    {
+      for(int j = 0; j < image[0].length; j++)
+      {
+        image[i][j] = "-";
+      }
+    }
+      
+    
+    int max = a[0];
+    int min = a[0];
+    for(int i = 0; i < a.length; i++)
+    {
+      if(a[i] > max)
+        max = a[i];
+      if(a[i] < min)
+        min = a[i];
+    }
+    
+    boolean perfect = true;
+    if((a.length % 2 != 0) || (max > 9) || (min < 0))
+      perfect = false;
+    
+    if(perfect)
+    {
+      for(int k = 0; k < a.length; k+=2)
+      {
+        image[a[k]][a[k+1]] = "o";
+      }
+    }
+  }
+   
+  
+  public void flipVertical()
+  {
+    String temp[][] = new String[10][10];
+    for(int i = 0; i < image.length; i++)
+    {
+        for(int n = 0; n < image[0].length; n++)
+        {
+          temp[i][n] = image[image.length-i-1][n];
+        }
+    }
+    for(int x = 0; x < temp.length; x++)
+    {
+      for(int y = 0; y < temp[0].length; y++)
+      {
+        image[x][y] = temp[x][y];
+      }
+    }
+
+  }
+  
+  public void flipHorizontal()
+  {
+    String temp[][] = new String[10][10];
+    for(int i = 0; i < image.length; i++)
+    {
+        for(int n = 0; n < image[0].length; n++)
+        {
+          temp[i][n] = image[i][image.length-n-1];
+        }
+    }
+    
+    for(int x = 0; x < temp.length; x++)
+    {
+      for(int y = 0; y < temp[0].length; y++)
+      {
+        image[x][y] = temp[x][y];
+      }
+    }
+  }
+  
+  public void reverse()
+  {
+    for(int i = 0; i < image.length; i++)
+    {
+        for(int n = 0; n < image[0].length; n++)
+        {
+          if(image[i][n].equals("o"))
+               image[i][n] = "-";
+             else
+               image[i][n] = "o";
+        }
+    }
+    
+  }
+  
+  public String toString()
+  {
+    String toPrint = "";
+   for(int i = 0; i < image.length; i++)
+   {
+      for(int n = 0; n < image[0].length; n++)
+      {
+        toPrint = toPrint + image[i][n];
+      }
+      toPrint = toPrint + "\n";
+   }
+   return toPrint;
+  }
+}
+  
+  
